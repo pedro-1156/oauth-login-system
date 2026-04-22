@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto de login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        * {
+            font-family: "Poppins", cursive;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        div {
+            border-radius: 13px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: fit-content;
+        }
+        img {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="{{picture}}" alt="Foto de perfil">
+        <h3>Olá!</h3>
+        <b id="mensagem"></b>
+    </div>
+    <script>
+        let Hora = new Date().getHours();
+        let mensagem = "";
+        let cor1 = "";
+        let cor2 = "";
+        let cor_div = ""
+        if (5 <= Hora && Hora < 12) {
+            mensagem = "Bom dia!";
+            cor1 = "#f7dc81";
+            cor2 = "#f7d7ad";
+            cor_div = "#ffda7d";
+        }
+        else if (12 <= Hora && Hora < 18) {
+            mensagem = "Boa tarde!";
+            cor1 = "#faaf68";
+            cor2 = "#e96161";
+            cor_div = "#f59871";
+        }
+        else {
+            mensagem = "Boa noite!";
+            cor1 = "#4438a1";
+            cor2 = "#27387a";
+            cor_div="#2c2163";
+        }
+        document.getElementById("mensagem").textContent = `${mensagem}, {{user}}`;
+        document.body.style.background = `linear-gradient(135deg, ${cor1}, ${cor2})`
+        document.querySelector("div").style.background = `${cor_div}`
+        </script>
+</body>
+</html>
