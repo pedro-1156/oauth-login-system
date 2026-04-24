@@ -1,5 +1,4 @@
 import sqlite3
-from datetime import datetime
 from dotenv import load_dotenv
 from os import getenv
 from authlib.integrations.flask_client import OAuth
