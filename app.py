@@ -4,6 +4,12 @@ from os import getenv
 from authlib.integrations.flask_client import OAuth
 from flask import Flask, redirect, url_for, session, render_template
 
+app.config.update(
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_SAMESITE="Lax"
+)
+
 load_dotenv()
 
 app = Flask(__name__)
